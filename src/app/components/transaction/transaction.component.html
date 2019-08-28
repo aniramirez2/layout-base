@@ -1,0 +1,46 @@
+<div class="card p-5 w-100">
+    <div class="row ">
+        <div class="col-lg-12 text-center">
+            <h1>NEW TRANSACTION</h1>
+        </div>
+        <div class="col-lg-12 p-3 ">
+            <form class="form-inline">
+                <div class="form-group mb-2 ">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-secondary rounded-circle mr-3" type="button" id="plus" (click)="add()">+</button>
+                        </div>
+                        <input type="text" class="form-control" placeholder="R$" aria-label="" aria-describedby="" 
+                        [(ngModel)]="transactionValue" [ngModelOptions]="{standalone: true}">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-secondary rounded-circle ml-3" type="button" id="minus" (click)="min()">-</button>
+                        </div>
+                    </div>
+                </div>
+            </form>     
+            <div class="form-group mt-3">
+                <input type="text" class="form-control" [(ngModel)]="transactionDescription" [ngModelOptions]="{standalone: true}"
+                 placeholder="Description" aria-label="" aria-describedby="">
+            </div>
+            <div class="form-check">
+                <div class="form-check p-3">
+                    <input class="form-check-input" type="radio" name="deposits"        
+                    [checked]="transactionType == 'DEPOSIT'"
+                        id="deposits" (click)="validateCheck($event)" value="DEPOSIT">
+                    <label class="form-check-label ml-3 label-secondary"  for="deposits">
+                        Deposits
+                    </label>
+                </div>
+                <div class="form-check p-3">
+                    <input class="form-check-input" type="radio" name="withdraw" 
+                    [checked]="transactionType != 'DEPOSIT'"
+                    id="withdraw" (click)="validateCheck($event)" value="WITHDRAW">
+                    <label class="form-check-label ml-3 label-secondary" for="withdraw">
+                        WithDrawls
+                    </label>
+                </div>
+            </div>            
+            <button type="button" class="btn btn-outline-secondary btn-lg mt-3" (click)="register()">REGISTER</button>
+        </div>
+    </div>
+</div>
