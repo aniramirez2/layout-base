@@ -1,16 +1,19 @@
 
-<div class="row">
-    <div class="col-lg-12">
-        <div class="form-group mt-3">
-            <input type="text" class="form-control" [(ngModel)]="transactionDescription" [ngModelOptions]="{standalone: true}"
-                placeholder="Description" aria-label="" aria-describedby="">
-        </div>
-    </div>
-    <div class="col-lg-12">
-        <ul class="list-group">
-            <li *ngFor="let transaction of transactions" class="list-group-item text-center">
-                 {{transaction.nome}} &#x25CF; {{transaction.email}}
-            </li>
-        </ul>
-    </div>
-</div>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Email</th>
+        <th scope="col">actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of transactions; let i= index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{transaction.nome}}</td>
+        <td>{{transaction.email}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
