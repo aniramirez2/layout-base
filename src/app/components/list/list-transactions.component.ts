@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {TransactionsService } from '../../transactions.service'
+import {TransactionsService } from '../../providers/transactions.service'
 @Component({
   selector: 'app-list-transactions',
   templateUrl: './list-transactions.component.html',
@@ -16,5 +16,8 @@ export class ListTransactionsComponent implements OnInit {
   ngOnInit() {
     this.transactions = this.transactionService.getTransactions();
   }
-
+  delete(id){
+    var index =this.transactionService.getTransactions().findIndex(x => x.id === id);
+    this.transactionService.delete(index)
+  }
 }

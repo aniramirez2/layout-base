@@ -1,8 +1,11 @@
 
+<div class="container-fluid"> 
+    <app-header></app-header>    
 
-<table class="table">
+  <table class="table">
     <thead>
       <tr>
+        <th>Id</th>
         <th scope="col">Nome</th>
         <th scope="col">Email</th>
         <th scope="col">actions</th>
@@ -10,10 +13,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let transaction of transactions; let i= index">
-        <th scope="row">{{i+1}}</th>
-        <td>{{transaction.nome}}</td>
+        <th scope="row">{{transaction.id}}</th>
+        <td>{{transaction.name}}</td>
         <td>{{transaction.email}}</td>
+        <td> <button type="button" class="btn btn-outline-secondary" (click)="delete(transaction.id)">Delete</button> <button type="button" class="btn btn-outline-secondary" [routerLink]="['/edit', transaction.id]">Edit</button></td>
       </tr>
     </tbody>
   </table>
-  
+</div>
